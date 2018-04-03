@@ -58,6 +58,7 @@
 		1A41898F2073BFE3003D9684 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A41898E2073BFE3003D9684 /* Document.swift */; };
 		1A4189922073C26D003D9684 /* PBUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4189902073C26D003D9684 /* PBUser+CoreDataClass.swift */; };
 		1A4189932073C26D003D9684 /* PBUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4189912073C26D003D9684 /* PBUser+CoreDataProperties.swift */; };
+		1A4189952073C394003D9684 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4189942073C394003D9684 /* SettingsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,6 +116,7 @@
 		1A41898E2073BFE3003D9684 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		1A4189902073C26D003D9684 /* PBUser+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PBUser+CoreDataClass.swift"; sourceTree = "<group>"; };
 		1A4189912073C26D003D9684 /* PBUser+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PBUser+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1A4189942073C394003D9684 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,10 +164,11 @@
 				1A41898A2073BCF5003D9684 /* PBSharedData.swift */,
 				1A2A700820739ACD00B4A783 /* User.swift */,
 				1A41898C2073BF06003D9684 /* UserDataAttribute.swift */,
-				1A2A6FEF207396C300B4A783 /* Main.storyboard */,
+				1A4189942073C394003D9684 /* SettingsTableViewController.swift */,
 				1A2A6FF5207396C400B4A783 /* Assets.xcassets */,
-				1A2A6FF7207396C400B4A783 /* LaunchScreen.storyboard */,
 				1A2A6FFA207396C400B4A783 /* Info.plist */,
+				1A2A6FF7207396C400B4A783 /* LaunchScreen.storyboard */,
+				1A2A6FEF207396C300B4A783 /* Main.storyboard */,
 				1A2A6FF2207396C300B4A783 /* PracticeBuddy.xcdatamodeld */,
 			);
 			path = PracticeBuddy;
@@ -373,6 +376,7 @@
 				1A4189712073BA69003D9684 /* PBAudioFile+CoreDataProperties.swift in Sources */,
 				1A41897D2073BA69003D9684 /* PBDataString+CoreDataProperties.swift in Sources */,
 				1A4189922073C26D003D9684 /* PBUser+CoreDataClass.swift in Sources */,
+				1A4189952073C394003D9684 /* SettingsTableViewController.swift in Sources */,
 				1A41895E2073BA69003D9684 /* PBPreference+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
