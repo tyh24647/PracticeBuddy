@@ -7,17 +7,44 @@
 //
 
 import UIKit
+import AVKit
+import WebKit
+import AssetsLibrary
+import Photos
+import MediaPlayer
+import UserNotifications
 import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var window: UIWindow?
+    @objc var TAG = NSStringFromClass(classForCoder()).components(separatedBy: ".").last! as String
+    
+    public var managedObjectContext: NSManagedObjectContext!
+    public var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
+    }
+    
+    func requestAudioAuthStatus() -> Bool {
+        let avCaptureAuthStatus = AVCaptureDevice.authorizationStatus(for: .audio)
+        if avCaptureAuthStatus == .notDetermined {
+            AVCaptureDevice.requestAccess(for: .audio, completionHandler: { response in
+                if response {
+                    #if DEBUG
+                    print("\"AVCaptureDevice\" access granted")
+                    #endif
+                } else {
+                    #if DEBUG
+                    print("\"AVCaptureDevice\" access denied")
+                    #endif
+                }
+            })
+        }
+        
+        return avCaptureAuthStatus == .authorized
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -44,21 +71,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
 
-    // MARK: - Core Data stack
 
+    // MARK: - Core Data stack
+    
     lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
          creates and returns a container, having loaded the store for the
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
-        */
+         */
         let container = NSPersistentContainer(name: "PracticeBuddy")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                 
+                
                 /*
                  Typical reasons for an error here include:
                  * The parent directory does not exist, cannot be created, or disallows writing.
@@ -67,14 +95,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                  * The store could not be migrated to the current model version.
                  Check the error message to determine what the actual problem was.
                  */
+                //fatalError("Unresolved error \(error), \(error.userInfo)")
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
         return container
     }()
-
+    
     // MARK: - Core Data Saving support
-
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -84,10 +112,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                //fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                print("\n\nERROR: \(nserror) - \(nserror.userInfo)")
             }
         }
     }
+    
+    @discardableResult
+    public func preloadData() -> Bool {
+        let sqlitePath = Bundle.main.path(forResource: "MyDB", ofType: "sqlite")
+        let sqlitePath_shm = Bundle.main.path(forResource: "MyDB", ofType: "sqlite-shm")
+        let sqlitePath_wal = Bundle.main.path(forResource: "MyDB", ofType: "sqlite-wal")
+        
+        let URL1 = URL(fileURLWithPath: sqlitePath!)
+        let URL2 = URL(fileURLWithPath: sqlitePath_shm!)
+        let URL3 = URL(fileURLWithPath: sqlitePath_wal!)
+        let URL4 = URL(fileURLWithPath: NSPersistentContainer.defaultDirectoryURL().relativePath + "/MyDB.sqlite")
+        let URL5 = URL(fileURLWithPath: NSPersistentContainer.defaultDirectoryURL().relativePath + "/MyDB.sqlite-shm")
+        let URL6 = URL(fileURLWithPath: NSPersistentContainer.defaultDirectoryURL().relativePath + "/MyDB.sqlite-wal")
+        
+        if !FileManager.default.fileExists(atPath: NSPersistentContainer.defaultDirectoryURL().relativePath + "/MyDB.sqlite") {
+            // Copy 3 files
+            do {
+                try FileManager.default.copyItem(at: URL1, to: URL4)
+                try FileManager.default.copyItem(at: URL2, to: URL5)
+                try FileManager.default.copyItem(at: URL3, to: URL6)
+                
+                print("=======================")
+                print("FILES COPIED")
+                print("=======================")
+                return true
+                
+            } catch {
+                print("=======================")
+                print("ERROR IN COPY OPERATION")
+                print("=======================")
+                return false
+            }
+        } else {
+            print("=======================")
+            print("FILES EXIST")
+            print("=======================")
+            return true
+        }
+    }
 
+    
 }
 
