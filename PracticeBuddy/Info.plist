@@ -2,6 +2,21 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoadsInWebContent</key>
+		<true/>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>kTCCServiceMediaLibrary</key>
+	<string>App plays music from user library</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>App uses speech recognition to trigger audio recording tasks</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>App saves and manages audo files to user library</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>App uses microphone for speech recognition capabilities</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

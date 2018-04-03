@@ -59,6 +59,19 @@
 		1A4189922073C26D003D9684 /* PBUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4189902073C26D003D9684 /* PBUser+CoreDataClass.swift */; };
 		1A4189932073C26D003D9684 /* PBUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4189912073C26D003D9684 /* PBUser+CoreDataProperties.swift */; };
 		1A4189952073C394003D9684 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4189942073C394003D9684 /* SettingsTableViewController.swift */; };
+		1A86D0782073E3300087C3FF /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A86D0772073E3300087C3FF /* Speech.framework */; };
+		1A86D07A2073E3410087C3FF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A86D0792073E3410087C3FF /* CoreData.framework */; };
+		1A86D07C2073E3480087C3FF /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A86D07B2073E3480087C3FF /* CoreAudio.framework */; };
+		1A86D07E2073E34E0087C3FF /* CoreAudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A86D07D2073E34E0087C3FF /* CoreAudioKit.framework */; };
+		1A86D0802073E3B20087C3FF /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A86D07F2073E3B20087C3FF /* SpeechRecognizer.swift */; };
+		1A86D0822073E3F30087C3FF /* SpeechRecognitionTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A86D0812073E3F30087C3FF /* SpeechRecognitionTask.swift */; };
+		1A86D0862073E5380087C3FF /* SpeechRecognitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A86D0852073E5380087C3FF /* SpeechRecognitionController.swift */; };
+		1A86D0882073F9960087C3FF /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A86D0872073F9960087C3FF /* MathUtils.swift */; };
+		1A86D08A2073FCFD0087C3FF /* AudioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A86D0892073FCFD0087C3FF /* AudioPlayerViewController.swift */; };
+		1A86D08C207402F10087C3FF /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A86D08B207402F10087C3FF /* MainTabBarViewController.swift */; };
+		1A86D08E207408330087C3FF /* PlayMediaTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A86D08D207408330087C3FF /* PlayMediaTableTableViewController.swift */; };
+		1A86D09120740A6F0087C3FF /* CustomMediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A86D08F20740A6F0087C3FF /* CustomMediaTableViewCell.swift */; };
+		1A86D09220740A6F0087C3FF /* CustomMediaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A86D09020740A6F0087C3FF /* CustomMediaTableViewCell.xib */; };
 		1FE08F7977A323F81B09AF66 /* Pods_PracticeBuddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9523081B2D04C657CB064A /* Pods_PracticeBuddy.framework */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +131,19 @@
 		1A4189902073C26D003D9684 /* PBUser+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PBUser+CoreDataClass.swift"; sourceTree = "<group>"; };
 		1A4189912073C26D003D9684 /* PBUser+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PBUser+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1A4189942073C394003D9684 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		1A86D0772073E3300087C3FF /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
+		1A86D0792073E3410087C3FF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1A86D07B2073E3480087C3FF /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		1A86D07D2073E34E0087C3FF /* CoreAudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioKit.framework; path = System/Library/Frameworks/CoreAudioKit.framework; sourceTree = SDKROOT; };
+		1A86D07F2073E3B20087C3FF /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
+		1A86D0812073E3F30087C3FF /* SpeechRecognitionTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionTask.swift; sourceTree = "<group>"; };
+		1A86D0852073E5380087C3FF /* SpeechRecognitionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionController.swift; sourceTree = "<group>"; };
+		1A86D0872073F9960087C3FF /* MathUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathUtils.swift; sourceTree = "<group>"; };
+		1A86D0892073FCFD0087C3FF /* AudioPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewController.swift; sourceTree = "<group>"; };
+		1A86D08B207402F10087C3FF /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		1A86D08D207408330087C3FF /* PlayMediaTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayMediaTableTableViewController.swift; sourceTree = "<group>"; };
+		1A86D08F20740A6F0087C3FF /* CustomMediaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMediaTableViewCell.swift; sourceTree = "<group>"; };
+		1A86D09020740A6F0087C3FF /* CustomMediaTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomMediaTableViewCell.xib; sourceTree = "<group>"; };
 		5F9523081B2D04C657CB064A /* Pods_PracticeBuddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PracticeBuddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		863F1C1EBF98F0AA2EE7DDE3 /* Pods-PracticeBuddy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticeBuddy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PracticeBuddy/Pods-PracticeBuddy.debug.xcconfig"; sourceTree = "<group>"; };
 		FAFF52DB8EC1410DE2762FA3 /* Pods-PracticeBuddy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticeBuddy.release.xcconfig"; path = "Pods/Target Support Files/Pods-PracticeBuddy/Pods-PracticeBuddy.release.xcconfig"; sourceTree = "<group>"; };
@@ -128,6 +154,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A86D07E2073E34E0087C3FF /* CoreAudioKit.framework in Frameworks */,
+				1A86D07C2073E3480087C3FF /* CoreAudio.framework in Frameworks */,
+				1A86D07A2073E3410087C3FF /* CoreData.framework in Frameworks */,
+				1A86D0782073E3300087C3FF /* Speech.framework in Frameworks */,
 				1A2A7003207396D700B4A783 /* CloudKit.framework in Frameworks */,
 				1A2A70052073970B00B4A783 /* StoreKit.framework in Frameworks */,
 				1A2A70072073978A00B4A783 /* AudioToolbox.framework in Frameworks */,
@@ -160,7 +190,9 @@
 			isa = PBXGroup;
 			children = (
 				1A4189392073BA3D003D9684 /* CoreData */,
+				1A86D09320740A780087C3FF /* UI Objects */,
 				1A2A7000207396D200B4A783 /* PracticeBuddy.entitlements */,
+				1A4189842073BBAC003D9684 /* ManagedObjectContext.swift */,
 				1A41898E2073BFE3003D9684 /* Document.swift */,
 				1A2A709D2073B18C00B4A783 /* DocumentBrowserViewController.swift */,
 				1A2A709B2073B13900B4A783 /* DocumentViewController.swift */,
@@ -171,11 +203,19 @@
 				1A2A700820739ACD00B4A783 /* User.swift */,
 				1A41898C2073BF06003D9684 /* UserDataAttribute.swift */,
 				1A4189942073C394003D9684 /* SettingsTableViewController.swift */,
+				1A86D07F2073E3B20087C3FF /* SpeechRecognizer.swift */,
+				1A86D0812073E3F30087C3FF /* SpeechRecognitionTask.swift */,
+				1A86D0852073E5380087C3FF /* SpeechRecognitionController.swift */,
+				1A86D0872073F9960087C3FF /* MathUtils.swift */,
 				1A2A6FF5207396C400B4A783 /* Assets.xcassets */,
 				1A2A6FFA207396C400B4A783 /* Info.plist */,
 				1A2A6FF7207396C400B4A783 /* LaunchScreen.storyboard */,
 				1A2A6FEF207396C300B4A783 /* Main.storyboard */,
 				1A2A6FF2207396C300B4A783 /* PracticeBuddy.xcdatamodeld */,
+				1A86D0892073FCFD0087C3FF /* AudioPlayerViewController.swift */,
+				1A86D08B207402F10087C3FF /* MainTabBarViewController.swift */,
+				1A86D08D207408330087C3FF /* PlayMediaTableTableViewController.swift */,
+				1A86D08F20740A6F0087C3FF /* CustomMediaTableViewCell.swift */,
 			);
 			path = PracticeBuddy;
 			sourceTree = "<group>";
@@ -183,6 +223,10 @@
 		1A2A7001207396D600B4A783 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1A86D07D2073E34E0087C3FF /* CoreAudioKit.framework */,
+				1A86D07B2073E3480087C3FF /* CoreAudio.framework */,
+				1A86D0792073E3410087C3FF /* CoreData.framework */,
+				1A86D0772073E3300087C3FF /* Speech.framework */,
 				1A2A70062073978A00B4A783 /* AudioToolbox.framework */,
 				1A2A70042073970B00B4A783 /* StoreKit.framework */,
 				1A2A7002207396D600B4A783 /* CloudKit.framework */,
@@ -198,7 +242,6 @@
 				1A4189912073C26D003D9684 /* PBUser+CoreDataProperties.swift */,
 				1A4189862073BC8B003D9684 /* PBAudioController+CoreDataClass.swift */,
 				1A4189872073BC8B003D9684 /* PBAudioController+CoreDataProperties.swift */,
-				1A4189842073BBAC003D9684 /* ManagedObjectContext.swift */,
 				1A41893A2073BA69003D9684 /* PBDataDictionary+CoreDataClass.swift */,
 				1A41893B2073BA69003D9684 /* PBDataDictionary+CoreDataProperties.swift */,
 				1A41893C2073BA69003D9684 /* PBPreference+CoreDataClass.swift */,
@@ -231,6 +274,14 @@
 				1A41895B2073BA69003D9684 /* PBDataString+CoreDataProperties.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		1A86D09320740A780087C3FF /* UI Objects */ = {
+			isa = PBXGroup;
+			children = (
+				1A86D09020740A6F0087C3FF /* CustomMediaTableViewCell.xib */,
+			);
+			path = "UI Objects";
 			sourceTree = "<group>";
 		};
 		2301600D8C32CF18D2CA35F0 /* Pods */ = {
@@ -340,6 +391,7 @@
 				1A2A6FF9207396C400B4A783 /* LaunchScreen.storyboard in Resources */,
 				1A2A6FF6207396C400B4A783 /* Assets.xcassets in Resources */,
 				1A2A6FF1207396C300B4A783 /* Main.storyboard in Resources */,
+				1A86D09220740A6F0087C3FF /* CustomMediaTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +462,7 @@
 				1A41895D2073BA69003D9684 /* PBDataDictionary+CoreDataProperties.swift in Sources */,
 				1A4189662073BA69003D9684 /* PBSettingsPreference+CoreDataClass.swift in Sources */,
 				1A41897F2073BAC2003D9684 /* KeyValuePair.swift in Sources */,
+				1A86D0802073E3B20087C3FF /* SpeechRecognizer.swift in Sources */,
 				1A41898F2073BFE3003D9684 /* Document.swift in Sources */,
 				1A41896C2073BA69003D9684 /* PBAudioAttribute+CoreDataClass.swift in Sources */,
 				1A41898D2073BF07003D9684 /* UserDataAttribute.swift in Sources */,
@@ -419,13 +472,18 @@
 				1A4189642073BA69003D9684 /* PBTheme+CoreDataClass.swift in Sources */,
 				1A4189732073BA69003D9684 /* PBDataController+CoreDataProperties.swift in Sources */,
 				1A41896B2073BA69003D9684 /* PBFile+CoreDataProperties.swift in Sources */,
+				1A86D08A2073FCFD0087C3FF /* AudioPlayerViewController.swift in Sources */,
 				1A4189772073BA69003D9684 /* PBFilePermissions+CoreDataProperties.swift in Sources */,
 				1A2A6FEC207396C300B4A783 /* AppDelegate.swift in Sources */,
 				1A41897C2073BA69003D9684 /* PBDataString+CoreDataClass.swift in Sources */,
 				1A41896E2073BA69003D9684 /* PBData+CoreDataClass.swift in Sources */,
 				1A41896A2073BA69003D9684 /* PBFile+CoreDataClass.swift in Sources */,
+				1A86D0862073E5380087C3FF /* SpeechRecognitionController.swift in Sources */,
+				1A86D0822073E3F30087C3FF /* SpeechRecognitionTask.swift in Sources */,
 				1A4189742073BA69003D9684 /* PBFileAttribute+CoreDataClass.swift in Sources */,
+				1A86D08E207408330087C3FF /* PlayMediaTableTableViewController.swift in Sources */,
 				1A41896D2073BA69003D9684 /* PBAudioAttribute+CoreDataProperties.swift in Sources */,
+				1A86D08C207402F10087C3FF /* MainTabBarViewController.swift in Sources */,
 				1A4189632073BA69003D9684 /* PBStandardUser+CoreDataProperties.swift in Sources */,
 				1A41896F2073BA69003D9684 /* PBData+CoreDataProperties.swift in Sources */,
 				1A4189612073BA69003D9684 /* PBModel+CoreDataProperties.swift in Sources */,
@@ -440,9 +498,11 @@
 				1A2A709E2073B18C00B4A783 /* DocumentBrowserViewController.swift in Sources */,
 				1A4189712073BA69003D9684 /* PBAudioFile+CoreDataProperties.swift in Sources */,
 				1A41897D2073BA69003D9684 /* PBDataString+CoreDataProperties.swift in Sources */,
+				1A86D09120740A6F0087C3FF /* CustomMediaTableViewCell.swift in Sources */,
 				1A4189922073C26D003D9684 /* PBUser+CoreDataClass.swift in Sources */,
 				1A4189952073C394003D9684 /* SettingsTableViewController.swift in Sources */,
 				1A41895E2073BA69003D9684 /* PBPreference+CoreDataClass.swift in Sources */,
+				1A86D0882073F9960087C3FF /* MathUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,7 +652,10 @@
 				DEVELOPMENT_TEAM = ZM57TK6EDW;
 				INFOPLIST_FILE = PracticeBuddy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pbstudios.PracticeBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -610,7 +673,10 @@
 				DEVELOPMENT_TEAM = ZM57TK6EDW;
 				INFOPLIST_FILE = PracticeBuddy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pbstudios.PracticeBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

@@ -52,12 +52,16 @@ public struct PBSharedData {
     }
     
     private static var _user: PBUser! = { () -> PBUser? in
-        //return PBSharedData.instance.preloadData() ?
+       // return PBSharedData.instance.preloadData() ?
         
         // EXECUTE FETCH REQUEST AFTER LOADING FROM THE SAVED DATA!!!!!!!!!!!!!!!!!!!!
         // TODO TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST change me!
         // TODO TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST change me!
+        //PBSharedData.
+        //return PBSharedData.instance.preloadData() ? PBSharedData.user : nil
+        //return PBSharedData.user ?? PBSharedData._user ?? PBUser.current ?? PBUser()
         return nil
+        //    : nil
         // TODO TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST change me!
         // TODO TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST change me!
         
@@ -81,7 +85,7 @@ public struct PBSharedData {
                             fetchRequest.returnsObjectsAsFaults = false
                             
                             
-                            ///*
+                            
                             let result = try ManagedObjectContext.current.fetch(fetchRequest) as! [PBUser]
                             
                             // test and see if valid user with username
@@ -89,7 +93,7 @@ public struct PBSharedData {
                                 PBTmpUser = result[0]
                                 return PBTmpUser
                             }
-                            //*/
+                            
                             /*
                              let result = try mObjContext.fetch(fetchRequest)
                              for data in result as! [NSManagedObject] {

@@ -34,8 +34,8 @@ public struct User {
                             return _current ?? PBUser()
                         }()
                 } else {
-                    //return SFSharedData.user
-                    return nil
+                    return PBSharedData.user
+                    //return nil
                 }
             }
         } set {

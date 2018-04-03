@@ -14,6 +14,7 @@ import Photos
 import MediaPlayer
 import UserNotifications
 import CoreData
+import Speech
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,9 +26,73 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        self.managedObjectContext = PBSharedData.instance.persistentContainer.viewContext
+        
+        let usrData = NSEntityDescription.entity(
+            forEntityName: "PBUser",
+            in: self.managedObjectContext
+        )
+        
+        #if DEBUG
+        print("Application launched")
+        #endif
+        
+        #if DEBUG
+        print("Requesting access to \"SFSpeechRecognizer\"...")
+        #endif
+        
+        self.requestSpeechRecognitionAuthStatus()
+        
+        #if DEBUG
+        print("Requesting access to \"AVCaptureDevice\"...")
+        #endif
+        
+        self.requestAudioAuthStatus()
+        
+        self.initDefaults(application)
+        
+        // create shared user object
+        PBSharedData.user = NSManagedObject(entity: usrData!, insertInto: ManagedObjectContext.current) as! PBUser
+        
+        
         return true
     }
     
+    private func initDefaults(_ application: UIApplication) -> Void {
+        application.applicationSupportsShakeToEdit = true
+        
+        setupNotifications()
+    }
+    
+    private func setupNotifications() -> Void {
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterFullScreen), name: NSNotification.Name(rawValue: "ShouldEnterFullScreen"), object: nil)
+    }
+    
+    @objc func willEnterFullScreen(_ notification: Notification) -> Void {
+        
+    }
+    
+    @discardableResult
+    func requestSpeechRecognitionAuthStatus() -> Bool {
+        let sAuthStatus = SFSpeechRecognizer.authorizationStatus()
+        if sAuthStatus == .notDetermined {
+            SFSpeechRecognizer.requestAuthorization({ response in
+                if response == .authorized {
+                    #if DEBUG
+                    print("\"SFSpeechRecognizer\" access granted")
+                    #endif
+                } else {
+                    #if DEBUG
+                    print("\"SFSpeechRecognizer\" access denied")
+                    #endif
+                }
+            })
+        }
+        
+        return sAuthStatus == .authorized
+    }
+    
+    @discardableResult
     func requestAudioAuthStatus() -> Bool {
         let avCaptureAuthStatus = AVCaptureDevice.authorizationStatus(for: .audio)
         if avCaptureAuthStatus == .notDetermined {
@@ -46,6 +111,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return avCaptureAuthStatus == .authorized
     }
+    
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -71,6 +138,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
 
+    
 
     // MARK: - Core Data stack
     
