@@ -13,34 +13,35 @@ import UIKit
 public struct PBSharedData {
     
     /*
-     private static var _model: PBModel!
-     static var model: PBModel! {
-     get {
-     return _model ?? ({ () -> PBModel in
-     var tmpModel: PBModel!
-     
-     do {
-     let fetchRequest = NPBetchRequest<NPBetchRequestResult>(entityName: "PBModel")
-     let result = try ManagedObjectContext.current.fetch(fetchRequest) as! [PBModel]
-     
-     fetchRequest.returnsObjectsAPBaults = false
-     
-     if result[0].users != nil {
-     tmpModel = result[0]
-     }
-     } catch {
-     let fetchErr = error as NSError
-     print(fetchErr)
-     }
-     
-     return tmpModel
-     }()
-     )
-     } set {
-     _model = newValue ?? PBModel()
-     }
-     }
-     */
+    private static var _model: PBModel!
+    static var model: PBModel! {
+        get {
+            return _model ?? ({ () -> PBModel in
+                var tmpModel: PBModel!
+                
+                do {
+                    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PBModel")
+                    let result = try ManagedObjectContext.current.fetch(fetchRequest) as! [PBModel]
+                    
+                    fetchRequest.returnsObjectsAPBaults = false
+                    
+                    if result[0].users != nil {
+                        tmpModel = result[0]
+                    }
+                } catch {
+                    let fetchErr = error as NSError
+                    print(fetchErr)
+                }
+                
+                return tmpModel
+                }()
+            )
+        } set {
+            _model = newValue ?? PBModel()
+        }
+    }
+ */
+    
     
     private static var _instance: AppDelegate!
     static var instance: AppDelegate! {
@@ -52,15 +53,16 @@ public struct PBSharedData {
     }
     
     private static var _user: PBUser! = { () -> PBUser? in
-       // return PBSharedData.instance.preloadData() ?
+        (PBSharedData.instance.preloadData() ? PBSharedData._user : PBSharedData.user) ?? nil
         
         // EXECUTE FETCH REQUEST AFTER LOADING FROM THE SAVED DATA!!!!!!!!!!!!!!!!!!!!
         // TODO TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST change me!
         // TODO TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST change me!
         //PBSharedData.
-        //return PBSharedData.instance.preloadData() ? PBSharedData.user : nil
-        //return PBSharedData.user ?? PBSharedData._user ?? PBUser.current ?? PBUser()
-        return nil
+        //return PBSharedData._user ? PBSharedData.user : nil
+        //return  PBSharedData._user ??  nil
+        //return nil
+        //return nil
         //    : nil
         // TODO TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST change me!
         // TODO TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST change me!
@@ -94,6 +96,7 @@ public struct PBSharedData {
                                 return PBTmpUser
                             }
                             
+                            
                             /*
                              let result = try mObjContext.fetch(fetchRequest)
                              for data in result as! [NSManagedObject] {
@@ -107,20 +110,20 @@ public struct PBSharedData {
                              PBTmpUser = test
                              }
                              
-                             */
-                            //PBTmpUser = PBUser()
+                                PBTmpUser = PBUser()
                             
                             // TODO - Get rid of this once you allow username entry!!!
                             
                             
-                            /*
+                            
                              PBTmpUser.username = "TESSSSSTTTT!!!"
                              
                              print("Initializing test user: \(PBTmpUser)")
                              //return PBTmpUser
-                             */
+ 
                             
-                            //usr = PBTmpUser
+                        usr = PBTmpUser
+ */
                             
                             return PBTmpUser ?? _user ?? PBUser()
                         } catch {

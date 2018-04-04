@@ -9,23 +9,75 @@
 import UIKit
 import AVKit
 
-class AudioPlayerViewController: AVPlayerViewController, AVPlayerViewControllerDelegate {
+class AudioPlayerViewController: AVPlayerViewController {
     
+    var shouldDisplayPlayer = false
     
-
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    init() {
+        super.init(nibName: "AudioPlayerViewController", bundle: nil)
+        
+        
+    }
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    init(withWebURL urlStr: String?, delegate: AVPlayerViewControllerDelegate?) {
+        
+        if shouldDisplayPlayer {
+            super.init(nibName: "AudioPlayerViewController", bundle: Bundle.main)
+        } else {
+            super.init()
+        }
+        
+        self.player = AVPlayer(url: URL(string: urlStr!)!)
+        if delegate != nil {
+            self.delegate = delegate
+            
+        }
+        
+        
+        //self.viewWillAppear(true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if shouldDisplayPlayer {
+            
+            self.view.frame = UIScreen.main.bounds
+            showsPlaybackControls = true
+            show(self, sender: self.delegate)
+        }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.player
         
-        self.delegate = self
+        if shouldDisplayPlayer {
+            
+        //self.player = AVPlayer(url: URL(string: ""))
         
-        if self.player != nil {
-            self.player?.play()
+        //self.delegate = 
+        
+        
+            if self.player != nil {
+                self.player?.play()
+            }
         }
+
         
         // Do any additional setup after loading the view.
         //self.delegate = self
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -38,7 +90,6 @@ class AudioPlayerViewController: AVPlayerViewController, AVPlayerViewControllerD
         
     }
  */
-
 
     
     // MARK: - Navigation

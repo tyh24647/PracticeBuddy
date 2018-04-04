@@ -27,11 +27,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         self.managedObjectContext = PBSharedData.instance.persistentContainer.viewContext
+        //PBSharedData.instance.preloadData()
         
         let usrData = NSEntityDescription.entity(
             forEntityName: "PBUser",
             in: self.managedObjectContext
         )
+        
+        
         
         #if DEBUG
         print("Application launched")
@@ -64,12 +67,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupNotifications()
     }
     
-    private func setupNotifications() -> Void {
-        NotificationCenter.default.addObserver(self, selector: #selector(willEnterFullScreen), name: NSNotification.Name(rawValue: "ShouldEnterFullScreen"), object: nil)
-    }
-    
     @objc func willEnterFullScreen(_ notification: Notification) -> Void {
         
+    }
+    
+    private func setupNotifications() -> Void {
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterFullScreen), name: NSNotification.Name(rawValue: "ShouldEnterFullScreen"), object: nil)
     }
     
     @discardableResult

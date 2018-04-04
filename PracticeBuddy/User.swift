@@ -12,7 +12,7 @@ import UIKit
 
 public struct User {
     
-    public static var hasCreatedSFObj: Bool = false
+    public static var hasCreatedPBObj: Bool = false
     
     private static var _current: PBUser! = PBUser(context: ManagedObjectContext.current)
     static var current: PBUser! {
@@ -21,11 +21,12 @@ public struct User {
                 //&& hasCreatedSFObj {
                 return _current
             } else {
-                if !hasCreatedSFObj {
+                if !hasCreatedPBObj {
                     return
                         { () -> PBUser? in
                             var tmpUser: User!
-                            tmpUser = self.initWithDefaults(for: tmpUser) //User.initWithDefaults()
+                            //tmpUser = self.initWithDefaults(for: tmpUser)
+                            User.initWithDefaults()
                             
                             if tmpUser != nil {
                                 return tmpUser.createPBUserCoreDataObj(forUser: tmpUser)
@@ -39,7 +40,7 @@ public struct User {
                 }
             }
         } set {
-            if newValue != nil && !hasCreatedSFObj && newValue != _current {
+            if newValue != nil && !hasCreatedPBObj && newValue != _current {
                 _current = newValue ?? { (user: User!) -> PBUser in
                     var tmp: PBUser?
                     
@@ -92,10 +93,10 @@ public struct User {
         
         //self.initWithDefaults()
         
-        PBSharedData.user = User.hasCreatedSFObj ? PBSharedData.user : self.createPBUserCoreDataObj(forUser: self.initWithDefaults())
+        PBSharedData.user = User.hasCreatedPBObj ? PBSharedData.user : self.createPBUserCoreDataObj(forUser: self.initWithDefaults())
         //self.createPBUserCoreDataObj()
         
-        User.hasCreatedSFObj = true
+        User.hasCreatedPBObj = true
         
     }
     

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14124.1" systemVersion="17E182a" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="1.0">
-    <entity name="PBAudioAttribute" representedClassName="PBAudioAttribute" parentEntity="PBFileAttribute" syncable="YES">
+    <entity name="PBAudioAttribute" representedClassName="PBAudioAttribute" isAbstract="YES" parentEntity="PBFileAttribute" syncable="YES">
         <attribute name="audioController" optional="YES" attributeType="Transformable" customClassName="PBAudioController" syncable="YES"/>
     </entity>
-    <entity name="PBAudioController" representedClassName="PBAudioController" parentEntity="PBDataController" syncable="YES">
+    <entity name="PBAudioController" representedClassName="PBAudioController" isAbstract="YES" parentEntity="PBDataController" syncable="YES">
         <attribute name="audioFiles" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="canSave" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
     </entity>
-    <entity name="PBAudioFile" representedClassName="PBAudioFile" parentEntity="PBFile" syncable="YES">
+    <entity name="PBAudioFile" representedClassName="PBAudioFile" isAbstract="YES" parentEntity="PBFile" syncable="YES">
         <attribute name="file" optional="YES" attributeType="Transformable" syncable="YES"/>
     </entity>
     <entity name="PBData" representedClassName="PBData" isAbstract="YES" parentEntity="PBModel" syncable="YES">
@@ -24,10 +24,10 @@
         <relationship name="dictionaryRepresentation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PBDataDictionary" inverseName="controller" inverseEntity="PBDataDictionary" syncable="YES"/>
         <relationship name="stringValue" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PBDataString" inverseName="controller" inverseEntity="PBDataString" syncable="YES"/>
     </entity>
-    <entity name="PBDataDictionary" representedClassName="PBDataDictionary" parentEntity="PBData" syncable="YES">
+    <entity name="PBDataDictionary" representedClassName="PBDataDictionary" isAbstract="YES" parentEntity="PBData" syncable="YES">
         <relationship name="controller" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PBDataController" inverseName="dictionaryRepresentation" inverseEntity="PBDataController" syncable="YES"/>
     </entity>
-    <entity name="PBDataString" representedClassName="PBDataString" parentEntity="PBData" syncable="YES">
+    <entity name="PBDataString" representedClassName="PBDataString" isAbstract="YES" parentEntity="PBData" syncable="YES">
         <relationship name="controller" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PBDataController" inverseName="stringValue" inverseEntity="PBDataController" syncable="YES"/>
     </entity>
     <entity name="PBFile" representedClassName="PBFile" isAbstract="YES" parentEntity="PBModel" syncable="YES">
@@ -43,26 +43,31 @@
         <attribute name="permissions" optional="YES" attributeType="Transformable" syncable="YES"/>
         <relationship name="file" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PBFile" inverseName="attributes" inverseEntity="PBFile" syncable="YES"/>
     </entity>
-    <entity name="PBFilePermissions" representedClassName="PBFilePermissions" parentEntity="PBFileAttribute" syncable="YES">
+    <entity name="PBFilePermissions" representedClassName="PBFilePermissions" isAbstract="YES" parentEntity="PBFileAttribute" syncable="YES">
         <attribute name="canDuplicate" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="canMove" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="canRead" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="canRename" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="canWrite" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
     </entity>
-    <entity name="PBFolderAttribute" representedClassName="PBFolderAttribute" parentEntity="PBFileAttribute" syncable="YES"/>
-    <entity name="PBModel" representedClassName="PBModel" syncable="YES">
-        <attribute name="files" optional="YES" attributeType="Transformable" customClassName="PBFile" syncable="YES"/>
-        <attribute name="themes" optional="YES" attributeType="Transformable" customClassName="PBTheme" syncable="YES"/>
-        <attribute name="users" optional="YES" attributeType="Transformable" customClassName=".PBUser" syncable="YES"/>
+    <entity name="PBFolderAttribute" representedClassName="PBFolderAttribute" isAbstract="YES" parentEntity="PBFileAttribute" syncable="YES"/>
+    <entity name="PBModel" representedClassName="PBModel" isAbstract="YES" syncable="YES">
+        <attribute name="themes" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="users" optional="YES" attributeType="Transformable" customClassName="PBUser" syncable="YES"/>
     </entity>
     <entity name="PBPreference" representedClassName="PBPreference" isAbstract="YES" parentEntity="PBModel" syncable="YES"/>
-    <entity name="PBSettingsPreference" representedClassName="PBSettingsPreference" parentEntity="PBPreference" syncable="YES"/>
-    <entity name="PBStandardUser" representedClassName="PBStandardUser" parentEntity="PBUser" syncable="YES"/>
-    <entity name="PBTheme" representedClassName="PBTheme" parentEntity="PBModel" syncable="YES">
-        <attribute name="backgroundColor" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <relationship name="model" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PBModel" syncable="YES"/>
+    <entity name="PBPreferences" representedClassName="PBPreferences" isAbstract="YES" parentEntity="PBUser" syncable="YES">
+        <attribute name="allowsMediaSaving" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="browserEnabled" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="encryptFiles" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="httpRequestsEnabled" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="useInAppSafari" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="user" optional="YES" attributeType="Transformable" customClassName="PBUser" syncable="YES"/>
+        <relationship name="savedUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PBUser" inverseName="userPreferences" inverseEntity="PBUser" syncable="YES"/>
     </entity>
+    <entity name="PBSettingsPreference" representedClassName="PBSettingsPreference" isAbstract="YES" parentEntity="PBPreference" syncable="YES"/>
+    <entity name="PBStandardUser" representedClassName="PBStandardUser" isAbstract="YES" parentEntity="PBUser" syncable="YES"/>
+    <entity name="PBTheme" representedClassName="PBTheme" isAbstract="YES" parentEntity="PBModel" syncable="YES"/>
     <entity name="PBUser" representedClassName="PBUser" isAbstract="YES" parentEntity="PBModel" syncable="YES">
         <attribute name="canChangeTheme" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="canSaveAudio" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
@@ -70,6 +75,7 @@
         <attribute name="dataDidChange" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="didCompleteOnboarding" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="files" optional="YES" attributeType="Transformable" customClassName="PBFile" syncable="YES"/>
         <attribute name="hasCloudFiles" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="hasFiles" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="hasOfflineFiles" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -81,28 +87,28 @@
         <attribute name="preferences" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="selectedTheme" optional="YES" attributeType="Transformable" customClassName="PBTheme" syncable="YES"/>
         <attribute name="shouldSendEmail" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="theme" optional="YES" attributeType="Transformable" customClassName="PBTheme" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="currentAppModel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PBModel" syncable="YES"/>
-        <relationship name="permissions" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="PBFilePermissions" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="userPreferences" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PBPreferences" inverseName="savedUser" inverseEntity="PBPreferences" syncable="YES"/>
     </entity>
     <elements>
-        <element name="PBAudioAttribute" positionX="-29" positionY="345" width="128" height="60"/>
-        <element name="PBAudioController" positionX="340" positionY="27" width="128" height="75"/>
-        <element name="PBAudioFile" positionX="225" positionY="-63" width="128" height="60"/>
+        <element name="PBAudioAttribute" positionX="-29" positionY="345" width="128" height="30"/>
+        <element name="PBAudioController" positionX="340" positionY="27" width="128" height="30"/>
+        <element name="PBAudioFile" positionX="225" positionY="-63" width="128" height="30"/>
         <element name="PBData" positionX="297" positionY="432" width="128" height="150"/>
         <element name="PBDataController" positionX="160" positionY="-54" width="128" height="90"/>
-        <element name="PBDataDictionary" positionX="457" positionY="147" width="128" height="60"/>
-        <element name="PBDataString" positionX="376" positionY="-141" width="128" height="58"/>
+        <element name="PBDataDictionary" positionX="457" positionY="147" width="128" height="30"/>
+        <element name="PBDataString" positionX="376" positionY="-141" width="128" height="30"/>
         <element name="PBFile" positionX="144" positionY="84" width="128" height="150"/>
         <element name="PBFileAttribute" positionX="-227" positionY="180" width="128" height="75"/>
-        <element name="PBFilePermissions" positionX="-369" positionY="456" width="128" height="120"/>
-        <element name="PBFolderAttribute" positionX="144" positionY="291" width="128" height="43"/>
-        <element name="PBModel" positionX="169" positionY="-423" width="128" height="90"/>
+        <element name="PBFilePermissions" positionX="-369" positionY="456" width="128" height="30"/>
+        <element name="PBFolderAttribute" positionX="144" positionY="291" width="128" height="30"/>
+        <element name="PBModel" positionX="169" positionY="-423" width="128" height="75"/>
         <element name="PBPreference" positionX="198" positionY="-216" width="128" height="45"/>
-        <element name="PBSettingsPreference" positionX="-144" positionY="-252" width="128" height="45"/>
-        <element name="PBTheme" positionX="459" positionY="-360" width="128" height="75"/>
-        <element name="PBUser" positionX="-189" positionY="-423" width="128" height="360"/>
-        <element name="PBStandardUser" positionX="-162" positionY="-270" width="128" height="45"/>
+        <element name="PBPreferences" positionX="-162" positionY="-270" width="128" height="30"/>
+        <element name="PBSettingsPreference" positionX="-144" positionY="-252" width="128" height="30"/>
+        <element name="PBStandardUser" positionX="-162" positionY="-270" width="128" height="30"/>
+        <element name="PBTheme" positionX="459" positionY="-360" width="128" height="30"/>
+        <element name="PBUser" positionX="-189" positionY="-423" width="128" height="30"/>
     </elements>
 </model>
