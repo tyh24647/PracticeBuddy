@@ -236,7 +236,7 @@
         <!--AVKit Player View Controller-->
         <scene sceneID="ER6-Dp-vS8">
             <objects>
-                <avPlayerViewController title="AVKit Player View Controller" definesPresentationContext="YES" modalPresentationStyle="overCurrentContext" videoGravity="AVLayerVideoGravityResizeAspectFill" id="8Wl-de-4eA" customClass="AudioPlayerViewController" customModule="PracticeBuddy" customModuleProvider="target" sceneMemberID="viewController">
+                <avPlayerViewController title="AVKit Player View Controller" definesPresentationContext="YES" videoGravity="AVLayerVideoGravityResizeAspectFill" id="8Wl-de-4eA" customClass="AudioPlayerViewController" customModule="PracticeBuddy" customModuleProvider="target" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                 </avPlayerViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sCb-J3-awe" userLabel="First Responder" sceneMemberID="firstResponder"/>
