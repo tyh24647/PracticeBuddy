@@ -9,13 +9,18 @@
 import UIKit
 import AVKit
 
-class AudioPlayerViewController: AVPlayerViewController {
+class AudioPlayerViewController: UIViewController {
     
     var shouldDisplayPlayer = false
+    
+    var player: AVPlayer!
+    var delegate: AVPlayerViewControllerDelegate!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
+    
     
     init() {
         super.init(nibName: "AudioPlayerViewController", bundle: nil)
@@ -51,7 +56,7 @@ class AudioPlayerViewController: AVPlayerViewController {
         if shouldDisplayPlayer {
             
             self.view.frame = UIScreen.main.bounds
-            showsPlaybackControls = true
+            self.player.allowsExternalPlayback = true
             show(self, sender: self.delegate)
         }
         

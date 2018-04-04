@@ -25,8 +25,8 @@ public struct User {
                     return
                         { () -> PBUser? in
                             var tmpUser: User!
-                            //tmpUser = self.initWithDefaults(for: tmpUser)
-                            User.initWithDefaults()
+                            tmpUser = self.initWithDefaults(for: tmpUser)
+                            //User.initWithDefaults()
                             
                             if tmpUser != nil {
                                 return tmpUser.createPBUserCoreDataObj(forUser: tmpUser)

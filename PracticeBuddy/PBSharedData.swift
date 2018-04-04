@@ -53,7 +53,8 @@ public struct PBSharedData {
     }
     
     private static var _user: PBUser! = { () -> PBUser? in
-        (PBSharedData.instance.preloadData() ? PBSharedData._user : PBSharedData.user) ?? nil
+        //(PBSharedData.instance.preloadData() ? PBSharedData._user : PBSharedData.user) ?? nil
+        return nil
         
         // EXECUTE FETCH REQUEST AFTER LOADING FROM THE SAVED DATA!!!!!!!!!!!!!!!!!!!!
         // TODO TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST change me!

@@ -28,6 +28,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         self.managedObjectContext = PBSharedData.instance.persistentContainer.viewContext
         //PBSharedData.instance.preloadData()
+        do {
+            try managedObjectContext.persistentStoreCoordinator?.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: "PracticeBuddy", at: self.applicationDocumentsDirectory.appendingPathComponent("PracticeBuddy.sqlite"), options: [:])
+        
+        } catch {
+            print(error)
+        }
+        
+    
+        
         
         let usrData = NSEntityDescription.entity(
             forEntityName: "PBUser",
@@ -56,10 +65,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // create shared user object
         PBSharedData.user = NSManagedObject(entity: usrData!, insertInto: ManagedObjectContext.current) as! PBUser
-        
+        saveContext()
         
         return true
     }
+    
+    lazy var applicationDocumentsDirectory: URL = {
+        // The directory the application uses to store the Core Data store file. This code uses a directory named "com.cocoacasts.PersistentStores" in the application's documents Application Support directory.
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return urls[urls.count - 1]
+    }()
     
     private func initDefaults(_ application: UIApplication) -> Void {
         application.applicationSupportsShakeToEdit = true
@@ -189,45 +204,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    @discardableResult
-    public func preloadData() -> Bool {
-        let sqlitePath = Bundle.main.path(forResource: "MyDB", ofType: "sqlite")
-        let sqlitePath_shm = Bundle.main.path(forResource: "MyDB", ofType: "sqlite-shm")
-        let sqlitePath_wal = Bundle.main.path(forResource: "MyDB", ofType: "sqlite-wal")
-        
-        let URL1 = URL(fileURLWithPath: sqlitePath!)
-        let URL2 = URL(fileURLWithPath: sqlitePath_shm!)
-        let URL3 = URL(fileURLWithPath: sqlitePath_wal!)
-        let URL4 = URL(fileURLWithPath: NSPersistentContainer.defaultDirectoryURL().relativePath + "/MyDB.sqlite")
-        let URL5 = URL(fileURLWithPath: NSPersistentContainer.defaultDirectoryURL().relativePath + "/MyDB.sqlite-shm")
-        let URL6 = URL(fileURLWithPath: NSPersistentContainer.defaultDirectoryURL().relativePath + "/MyDB.sqlite-wal")
-        
-        if !FileManager.default.fileExists(atPath: NSPersistentContainer.defaultDirectoryURL().relativePath + "/MyDB.sqlite") {
-            // Copy 3 files
-            do {
-                try FileManager.default.copyItem(at: URL1, to: URL4)
-                try FileManager.default.copyItem(at: URL2, to: URL5)
-                try FileManager.default.copyItem(at: URL3, to: URL6)
-                
-                print("=======================")
-                print("FILES COPIED")
-                print("=======================")
-                return true
-                
-            } catch {
-                print("=======================")
-                print("ERROR IN COPY OPERATION")
-                print("=======================")
-                return false
-            }
-        } else {
-            print("=======================")
-            print("FILES EXIST")
-            print("=======================")
-            return true
-        }
-    }
-
     
 }
 

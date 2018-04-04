@@ -91,6 +91,7 @@
         <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="userPreferences" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PBPreferences" inverseName="savedUser" inverseEntity="PBPreferences" syncable="YES"/>
     </entity>
+    <configuration name="Configuration"/>
     <elements>
         <element name="PBAudioAttribute" positionX="-29" positionY="345" width="128" height="30"/>
         <element name="PBAudioController" positionX="340" positionY="27" width="128" height="30"/>

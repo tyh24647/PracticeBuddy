@@ -18,7 +18,6 @@ class CustomMediaTableViewCell: UITableViewCell {
     }
     
     
-    
     //var _urlString: String? = "http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"
     /*
     public var urlString: String? {
@@ -38,6 +37,8 @@ class CustomMediaTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.textView.textColor = UIColor(red: 246, green: 116, blue: 234, alpha: 1)
+         
     }
     
     @objc func dismissViewOnSwipe() -> Void {

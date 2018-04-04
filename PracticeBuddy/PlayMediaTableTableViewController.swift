@@ -15,7 +15,7 @@ class PlayMediaTableTableViewController: UITableViewController, AVPlayerViewCont
         "http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"
     ]
     
-    var videoView: AudioPlayerViewController!
+    var videoView: AVPlayerViewController!
     
     
     override func viewDidLoad() {
@@ -74,27 +74,27 @@ class PlayMediaTableTableViewController: UITableViewController, AVPlayerViewCont
             //AVPlayerViewController(nibName: "AudioPlayerViewController", bundle: self.nibBundle)
             
             ({ () -> (AVPlayerViewController) in
-                let avPlayerController: AudioPlayerViewController? = { () -> AudioPlayerViewController in
-                {(urlStr) -> (AudioPlayerViewController) in
-                    return AudioPlayerViewController(withWebURL: url, delegate: self)
-                    }(url) as AudioPlayerViewController
+                let avPlayerController = { () -> AVPlayerViewController in
+                {(urlStr) -> (AVPlayerViewController) in
+                    return AVPlayerViewController(nibName: url, bundle: Bundle.main)
+                    }(url) as AVPlayerViewController
                 }()
                 
-                self.videoView = avPlayerController
-                self.videoView.delegate = self
+                if self.videoView == nil {
+                    self.videoView = avPlayerController
+                }
                 
-                /*
+                self.videoView!.delegate = self
+                
                 if self.videoView.player == nil {
                     self.videoView.player = AVPlayer(url: URL(string: url)!)
                 }
- */
                 
-                self.videoView!.shouldDisplayPlayer = false
+                //self.videoView.shouldDisplayPlayer = false
                 
                 if self.videoView != nil {
                     
-                    self.videoView.shouldDisplayPlayer = true
-                    self.videoView.showsPlaybackControls = true
+                    
                     self.prepare(for: UIStoryboardSegue(identifier: "PlayMedia", source: self, destination: self.videoView!), sender: self)
                     
                     /*
@@ -107,7 +107,7 @@ class PlayMediaTableTableViewController: UITableViewController, AVPlayerViewCont
                     //avPlayerController!.player!.play()
                 }
                 
-                return (self.videoView! as AVPlayerViewController)
+                return self.videoView
             })()
         )
         
@@ -121,15 +121,15 @@ class PlayMediaTableTableViewController: UITableViewController, AVPlayerViewCont
         playerViewController.player = AVPlayer(url: URL(string: urls[(self.tableView.indexPathForSelectedRow!.row)])!)
         //playerViewController.presentationController?.shouldPresentInFullscreen = true
         
-        let vc = playerViewController as! AudioPlayerViewController
+        let vc = playerViewController
         vc.allowsPictureInPicturePlayback = true
         vc.showsPlaybackControls = true
         
         
         //playerViewController.player!.play()
         vc.viewWillAppear(true)
-        //show(playerViewController, sender: vc.delegate)
-        
+        show(vc, sender: self)
+        vc.updatesNowPlayingInfoCenter = true
         
         vc.player?.play()
         //playerViewController.player = AVPlayer(url: URL(string: "")!)
