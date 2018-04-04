@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A2A6FEC207396C300B4A783 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2A6FEB207396C300B4A783 /* AppDelegate.swift */; };
-		1A2A6FEE207396C300B4A783 /* FilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2A6FED207396C300B4A783 /* FilesViewController.swift */; };
+		1A2A6FEE207396C300B4A783 /* FilesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2A6FED207396C300B4A783 /* FilesTableViewController.swift */; };
 		1A2A6FF1207396C300B4A783 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A2A6FEF207396C300B4A783 /* Main.storyboard */; };
 		1A2A6FF4207396C300B4A783 /* PracticeBuddy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1A2A6FF2207396C300B4A783 /* PracticeBuddy.xcdatamodeld */; };
 		1A2A6FF6207396C400B4A783 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A2A6FF5207396C400B4A783 /* Assets.xcassets */; };
@@ -72,13 +72,16 @@
 		1A86D08E207408330087C3FF /* PlayMediaTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A86D08D207408330087C3FF /* PlayMediaTableTableViewController.swift */; };
 		1A86D09120740A6F0087C3FF /* CustomMediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A86D08F20740A6F0087C3FF /* CustomMediaTableViewCell.swift */; };
 		1A86D09220740A6F0087C3FF /* CustomMediaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A86D09020740A6F0087C3FF /* CustomMediaTableViewCell.xib */; };
+		1A86D0952074380D0087C3FF /* FilesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A86D0942074380D0087C3FF /* FilesTableViewCell.swift */; };
+		1AF2122A2074CF5C00B21632 /* PBPreferences+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF212282074CF5C00B21632 /* PBPreferences+CoreDataClass.swift */; };
+		1AF2122B2074CF5C00B21632 /* PBPreferences+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF212292074CF5C00B21632 /* PBPreferences+CoreDataProperties.swift */; };
 		1FE08F7977A323F81B09AF66 /* Pods_PracticeBuddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9523081B2D04C657CB064A /* Pods_PracticeBuddy.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1A2A6FE8207396C300B4A783 /* PracticeBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A2A6FEB207396C300B4A783 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1A2A6FED207396C300B4A783 /* FilesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesViewController.swift; sourceTree = "<group>"; };
+		1A2A6FED207396C300B4A783 /* FilesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesTableViewController.swift; sourceTree = "<group>"; };
 		1A2A6FF0207396C300B4A783 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1A2A6FF3207396C300B4A783 /* PracticeBuddy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PracticeBuddy.xcdatamodel; sourceTree = "<group>"; };
 		1A2A6FF5207396C400B4A783 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -144,6 +147,9 @@
 		1A86D08D207408330087C3FF /* PlayMediaTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayMediaTableTableViewController.swift; sourceTree = "<group>"; };
 		1A86D08F20740A6F0087C3FF /* CustomMediaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMediaTableViewCell.swift; sourceTree = "<group>"; };
 		1A86D09020740A6F0087C3FF /* CustomMediaTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomMediaTableViewCell.xib; sourceTree = "<group>"; };
+		1A86D0942074380D0087C3FF /* FilesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesTableViewCell.swift; sourceTree = "<group>"; };
+		1AF212282074CF5C00B21632 /* PBPreferences+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PBPreferences+CoreDataClass.swift"; sourceTree = "<group>"; };
+		1AF212292074CF5C00B21632 /* PBPreferences+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PBPreferences+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5F9523081B2D04C657CB064A /* Pods_PracticeBuddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PracticeBuddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		863F1C1EBF98F0AA2EE7DDE3 /* Pods-PracticeBuddy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticeBuddy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PracticeBuddy/Pods-PracticeBuddy.debug.xcconfig"; sourceTree = "<group>"; };
 		FAFF52DB8EC1410DE2762FA3 /* Pods-PracticeBuddy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticeBuddy.release.xcconfig"; path = "Pods/Target Support Files/Pods-PracticeBuddy/Pods-PracticeBuddy.release.xcconfig"; sourceTree = "<group>"; };
@@ -197,7 +203,7 @@
 				1A2A709D2073B18C00B4A783 /* DocumentBrowserViewController.swift */,
 				1A2A709B2073B13900B4A783 /* DocumentViewController.swift */,
 				1A2A6FEB207396C300B4A783 /* AppDelegate.swift */,
-				1A2A6FED207396C300B4A783 /* FilesViewController.swift */,
+				1A2A6FED207396C300B4A783 /* FilesTableViewController.swift */,
 				1A41897E2073BAC2003D9684 /* KeyValuePair.swift */,
 				1A41898A2073BCF5003D9684 /* PBSharedData.swift */,
 				1A2A700820739ACD00B4A783 /* User.swift */,
@@ -216,6 +222,7 @@
 				1A86D08B207402F10087C3FF /* MainTabBarViewController.swift */,
 				1A86D08D207408330087C3FF /* PlayMediaTableTableViewController.swift */,
 				1A86D08F20740A6F0087C3FF /* CustomMediaTableViewCell.swift */,
+				1A86D0942074380D0087C3FF /* FilesTableViewCell.swift */,
 			);
 			path = PracticeBuddy;
 			sourceTree = "<group>";
@@ -238,6 +245,8 @@
 		1A4189392073BA3D003D9684 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				1AF212282074CF5C00B21632 /* PBPreferences+CoreDataClass.swift */,
+				1AF212292074CF5C00B21632 /* PBPreferences+CoreDataProperties.swift */,
 				1A4189902073C26D003D9684 /* PBUser+CoreDataClass.swift */,
 				1A4189912073C26D003D9684 /* PBUser+CoreDataProperties.swift */,
 				1A4189862073BC8B003D9684 /* PBAudioController+CoreDataClass.swift */,
@@ -453,7 +462,7 @@
 				1A41895F2073BA69003D9684 /* PBPreference+CoreDataProperties.swift in Sources */,
 				1A4189792073BA69003D9684 /* PBFolderAttribute+CoreDataProperties.swift in Sources */,
 				1A4189852073BBAC003D9684 /* ManagedObjectContext.swift in Sources */,
-				1A2A6FEE207396C300B4A783 /* FilesViewController.swift in Sources */,
+				1A2A6FEE207396C300B4A783 /* FilesTableViewController.swift in Sources */,
 				1A4189722073BA69003D9684 /* PBDataController+CoreDataClass.swift in Sources */,
 				1A4189752073BA69003D9684 /* PBFileAttribute+CoreDataProperties.swift in Sources */,
 				1A4189782073BA69003D9684 /* PBFolderAttribute+CoreDataClass.swift in Sources */,
@@ -463,6 +472,7 @@
 				1A4189662073BA69003D9684 /* PBSettingsPreference+CoreDataClass.swift in Sources */,
 				1A41897F2073BAC2003D9684 /* KeyValuePair.swift in Sources */,
 				1A86D0802073E3B20087C3FF /* SpeechRecognizer.swift in Sources */,
+				1A86D0952074380D0087C3FF /* FilesTableViewCell.swift in Sources */,
 				1A41898F2073BFE3003D9684 /* Document.swift in Sources */,
 				1A41896C2073BA69003D9684 /* PBAudioAttribute+CoreDataClass.swift in Sources */,
 				1A41898D2073BF07003D9684 /* UserDataAttribute.swift in Sources */,
@@ -481,6 +491,7 @@
 				1A86D0862073E5380087C3FF /* SpeechRecognitionController.swift in Sources */,
 				1A86D0822073E3F30087C3FF /* SpeechRecognitionTask.swift in Sources */,
 				1A4189742073BA69003D9684 /* PBFileAttribute+CoreDataClass.swift in Sources */,
+				1AF2122B2074CF5C00B21632 /* PBPreferences+CoreDataProperties.swift in Sources */,
 				1A86D08E207408330087C3FF /* PlayMediaTableTableViewController.swift in Sources */,
 				1A41896D2073BA69003D9684 /* PBAudioAttribute+CoreDataProperties.swift in Sources */,
 				1A86D08C207402F10087C3FF /* MainTabBarViewController.swift in Sources */,
@@ -500,6 +511,7 @@
 				1A41897D2073BA69003D9684 /* PBDataString+CoreDataProperties.swift in Sources */,
 				1A86D09120740A6F0087C3FF /* CustomMediaTableViewCell.swift in Sources */,
 				1A4189922073C26D003D9684 /* PBUser+CoreDataClass.swift in Sources */,
+				1AF2122A2074CF5C00B21632 /* PBPreferences+CoreDataClass.swift in Sources */,
 				1A4189952073C394003D9684 /* SettingsTableViewController.swift in Sources */,
 				1A41895E2073BA69003D9684 /* PBPreference+CoreDataClass.swift in Sources */,
 				1A86D0882073F9960087C3FF /* MathUtils.swift in Sources */,

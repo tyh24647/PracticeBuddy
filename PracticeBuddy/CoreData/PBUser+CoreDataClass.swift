@@ -12,6 +12,7 @@ import CoreData
 
 @objc(PBUser)
 public class PBUser: NSManagedObject {
+    
     public static var current: PBUser! {
         get {
             return { () -> PBUser in
@@ -25,4 +26,5 @@ public class PBUser: NSManagedObject {
             }()
         }
     }
+ 
 }

@@ -9,11 +9,14 @@
 import UIKit
 import AVKit
 
-class PlayMediaTableTableViewController: UITableViewController {
+class PlayMediaTableTableViewController: UITableViewController, AVPlayerViewControllerDelegate {
 
-    let urls = [
+    let urls: [String]! = [
         "http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"
     ]
+    
+    var videoView: AVPlayerViewController!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +50,7 @@ class PlayMediaTableTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "MediaCell", for: indexPath)
+        let cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "MediaCell", for: indexPath)
         
         if let cell = cell as! CustomMediaTableViewCell? {
             cell.textLabel?.text = self.urls[indexPath.row]
@@ -63,13 +66,85 @@ class PlayMediaTableTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //var url = self.urls[indexPath.row]
-        self.performSegue(withIdentifier: "PlayMedia", sender: self)
+        let url = self.urls[indexPath.row]
+        
+        //var avPlayer: AVPlayer?
+        //var ctrl: AVPlayerViewController?
+        self.playerViewControllerWillStartPictureInPicture(
+            //AVPlayerViewController(nibName: "AudioPlayerViewController", bundle: self.nibBundle)
+            
+            ({ () -> (AVPlayerViewController) in
+                let avPlayerController = { () -> AVPlayerViewController in
+                {(urlStr) -> (AVPlayerViewController) in
+                    return AVPlayerViewController(nibName: url, bundle: Bundle.main)
+                    }(url) as AVPlayerViewController
+                }()
+                
+                if self.videoView == nil {
+                    self.videoView = avPlayerController
+                }
+                
+                self.videoView!.delegate = self
+                
+                if self.videoView.player == nil {
+                    self.videoView.player = AVPlayer(url: URL(string: url)!)
+                }
+                
+                //self.videoView.shouldDisplayPlayer = false
+                
+                if self.videoView != nil {
+                    
+                    
+                    self.prepare(for: UIStoryboardSegue(identifier: "PlayMedia", source: self, destination: self.videoView!), sender: self)
+                    
+                    /*
+                    self.performSegue(withIdentifier: "PlayMedia", sender: self)
+                    */
+                    //show(self.videoView!.view, sender: self)
+                    //self.videoView.viewWillAppear(true)
+ 
+                    //self.videoView!.player?.play()
+                    //avPlayerController!.player!.play()
+                }
+                
+                return self.videoView
+            })()
+        )
+        
+        
+        //self.performSegue(withIdentifier: "PlayMedia", sender: self.tableView(self.tableView, cellForRowAt: indexPath))
     }
+    
 
+    func playerViewControllerWillStartPictureInPicture(_ playerViewController: AVPlayerViewController) {
+        
+        playerViewController.player = AVPlayer(url: URL(string: urls[(self.tableView.indexPathForSelectedRow!.row)])!)
+        //playerViewController.presentationController?.shouldPresentInFullscreen = true
+        
+        let vc = playerViewController
+        vc.allowsPictureInPicturePlayback = true
+        vc.showsPlaybackControls = true
+        
+        
+        //playerViewController.player!.play()
+        vc.viewWillAppear(true)
+        show(vc, sender: self)
+        vc.updatesNowPlayingInfoCenter = true
+        
+        vc.player?.play()
+        //playerViewController.player = AVPlayer(url: URL(string: "")!)
+        //playerViewController.player?.play()
+    }
+    
+    /*
+    func playerViewControllerShouldAutomaticallyDismissAtPictureInPictureStart(_ playerViewController: AVPlayerViewController) -> Bool {
+        return true
+    }
+ */
+    
     /*
     // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool { 
         // Return false if you do not want the specified item to be editable.
         return true
     }
@@ -112,14 +187,43 @@ class PlayMediaTableTableViewController: UITableViewController {
         
         switch segue.identifier {
         case "PlayMedia":
-            let destination = segue.destination as! AVPlayerViewController
             
-            let url = URL(string:
-                "http://clips.vorwaerts-gmbh.de/VfE_html5.mp4")
             
-            if let movieURL = url {
-                destination.player = AVPlayer(url: movieURL)
+            
+            //let destination = segue.destination as! AVPlayerViewController
+            let strVal = "http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" // self.urls[self.tableView.indexPathForSelectedRow]
+            
+            let urlStr: String! = { (value) -> String in
+                return value // URL(string: "http://clips.vorwaerts-gmbh.de/VfE_html5.mp4")
+            }(strVal)
+            
+            let destination: AVPlayerViewController! = self.videoView//AudioPlayerViewController(withWebURL: urlStr, delegate: self) as AVPlayerViewController
+            
+            
+            if destination != nil {
+                if let mediaURL = URL(string: strVal) {
+                    //destination.delegate = self
+                    //destination.player = AVPlayer(url: mediaURL)
+                    destination.entersFullScreenWhenPlaybackBegins = true
+                    destination.exitsFullScreenWhenPlaybackEnds = true
+                    //destination.contentOverlayView?.addConstraints(self.view.constraints)
+                    
+                
+                    destination.showsPlaybackControls = true
+                    //destination.contentOverlayView?.bringSubview(toFront: destination.view)
+                    //destination.view.fram = self.view.bounds
+                    //destination.viewWillAppear(true)
+                    
+                    
+                    destination.loadView()
+                }
+                
             }
+            
+            super.prepare(for: segue, sender: sender)
+        case "HideMedia":
+            let destination = segue.destination as! AVPlayerViewController
+            destination.unwind(for: segue, towardsViewController: self)
         case "", nil:
             super.prepare(for: segue, sender: sender)
         default:
